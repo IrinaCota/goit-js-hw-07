@@ -28,20 +28,12 @@ const images = [
   },
 ];
 
-
-
 const galleryList = document.querySelector(".gallery")
 
-images.forEach(img => {
-  const liElement = document.createElement("li");
-  const imgElement = document.createElement("img");
+let galleryItems = '';
 
-  imgElement.src = img.url;
-  imgElement.alt = img.alt;
+images.forEach(image => {
+  galleryItems += `<li><img src="${image.url}" alt="${image.alt}"></li>`;
+});
 
-  liElement.appendChild(imgElement);
-
-  galleryList.appendChild(liElement);
-
-  console.log(galleryList);
-})
+galleryList.insertAdjacentHTML("beforeend", galleryItems);
